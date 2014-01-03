@@ -11,5 +11,10 @@ class Pumatra < Sinatra::Base
     return 'It works!'
   end
 
+  get '/counter' do
+    path = params["Path"]
+    return "Counted #{path}"
+  end
+
   run! if app_file == $0
 end
