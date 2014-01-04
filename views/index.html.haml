@@ -1,0 +1,19 @@
+!!!
+
+%html
+  %head
+    %title Downloads
+  %body
+    %table
+      %thead
+        %th
+          Path
+        %th
+          Download count
+      %tbody
+        - @downloads.each do |dl|
+          %tr
+            %td
+              = dl.path
+            %td
+              = dl.count

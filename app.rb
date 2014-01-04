@@ -15,9 +15,8 @@ class Pumatra < Sinatra::Base
   helpers Sinatra::JSON
 
   get '/' do
-    Download.all.map do |dl|
-      "#{dl.path} => #{dl.count}"
-    end.join " --\n\n"
+    @downloads = Download.all
+    haml :index
   end
 
   get '/counter' do
