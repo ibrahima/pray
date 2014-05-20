@@ -4,16 +4,15 @@
   %head
     %title Downloads
   %body
+    %p
+      Instructions: Send a text message to 1-213-263-3592 with your estimated arrival time in minutes to be added to the list
     %table
       %thead
         %th
-          Path
-        %th
-          Download count
+          Arrival Time
       %tbody
-        - @downloads.each do |dl|
+        - @people.each do |person|
           %tr
             %td
-              = dl.path
-            %td
-              = dl.count
+              = person.eta
+              minutes
