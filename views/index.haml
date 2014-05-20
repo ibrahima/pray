@@ -3,16 +3,44 @@
 %html
   %head
     %title Pray
+    %link{rel: :stylesheet, href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}
+    %link{rel: :stylesheet, href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"}
+    %link{rel: :stylesheet, href: "/css/style.css"}
+    
+
   %body
-    %p
-      Instructions: Send a text message to 1-213-263-3592 with your estimated arrival time in minutes to be added to the list
-    %table
-      %thead
-        %th
-          Arrival Time
-      %tbody
-        - @people.each do |person|
-          %tr
-            %td
-              = person.eta
-              minutes
+    .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{type: "button", data: {toggle: "collapse", target: ".navbar-collapse"}}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "#"}
+            Pray
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{href: "#"}
+                Home
+            %li
+              %a{href: "#"}
+                About
+    .container
+      %h1 Pray
+      %p
+        Instructions: Send a text message to 1-213-263-3592, with your estimated arrival time in minutes, in order to be added to the list.
+      %table.table.table-striped
+        %thead
+          %th
+            Arrival Time
+        %tbody
+          - @people.each do |person|
+            %tr
+              %td
+                = person.eta
+                minutes
+
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}

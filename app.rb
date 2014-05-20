@@ -16,7 +16,7 @@ class Pumatra < Sinatra::Base
 
   get '/pray/view' do
     Person.all.each do |person|
-      if person.arrival_time < Time.now
+      if person.arrival_time < (Time.now - 120)
         person.delete
       end
     end
@@ -33,11 +33,12 @@ class Pumatra < Sinatra::Base
   end
 
   post '/pray/register' do
+    text = params[:text]
+    minutes = text.to_i
+    arrival_time = Time.now + minutes*60
+    Person.create(arrival_time: arrival_time)
     return "hi!"
   end
 
-  get '/*' do
-    viewname = params[:splat].first    
-  end
   run! if app_file == $0
 end
