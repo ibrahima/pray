@@ -6,7 +6,7 @@
     %link{rel: :stylesheet, href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}
     %link{rel: :stylesheet, href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"}
     %link{rel: :stylesheet, href: "/css/style.css"}
-    
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
 
   %body
     .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
@@ -29,8 +29,15 @@
                 About
     .container
       %h1 Pray
-      %p
-        Instructions: Send a text message to 1-213-263-3592, with your estimated arrival time in minutes, in order to be added to the list.
+      %p.lead
+        Send a text message to
+        %a{href: "tel:+12132633592"}<
+          213-263-3592
+        with your estimated arrival time in minutes, in order to be added to the
+        list. Text "list" to the same number to find out how many people are
+        expected to arrive in the next five minutes.
+
+        You can also use the form below to add yourself to the list.
       %table.table.table-striped
         %thead
           %th
@@ -41,6 +48,15 @@
               %td
                 = person.eta
                 minutes
-
+      .row
+        .col-md-12
+          %h1 I'm On My Way!
+          %form{role: "form", method: "post", action: "/pray/register"}
+            .form-group
+              %label{for: "eta"}
+                Estimated Time of Arrival 
+              %input#eta.form-control{type: "number", placeholder: "time (in minutes)", name: "eta"}
+            %button.btn.btn-primary{type: "submit"}
+              Submit!
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
     %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
