@@ -23,12 +23,7 @@ class Pumatra < Sinatra::Base
   end
 
   get '/pray/view' do
-    Person.all.each do |person|
-      if person.arrival_time < (Time.now - 120)
-        person.delete
-      end
-    end
-    @people = Person.all
+    @people = Person.order(:arrival_time).where{arrival_time > Time.now - 120}.all
     haml :index
   end
   
