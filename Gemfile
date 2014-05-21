@@ -9,3 +9,5 @@ gem "sequel"
 gem "haml"
 
 gem "nexmo"
+
+gem "pry"
