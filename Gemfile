@@ -7,3 +7,5 @@ gem "sqlite3"
 gem "sequel"
 
 gem "haml"
+
+gem "nexmo"
