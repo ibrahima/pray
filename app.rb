@@ -22,6 +22,10 @@ class Pumatra < Sinatra::Base
     super
   end
 
+  get '/' do
+    redirect to('/pray/view')
+  end
+
   get '/pray/view' do
     @people = Person.order(:arrival_time).where{arrival_time > Time.now - 120}.all
     haml :index
