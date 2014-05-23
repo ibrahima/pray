@@ -11,3 +11,5 @@ gem "haml"
 gem "nexmo"
 
 gem "pry"
+gem "rack-coffee"
+gem "rerun"
